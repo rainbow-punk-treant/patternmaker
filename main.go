@@ -13,7 +13,7 @@ func main() {
 	if len(os.Args) > 1 {
 
 		v := ""
-		for yarg := 1; yarg < len(os.Args)-1; yarg++ {
+		for yarg := 1; yarg < len(os.Args); yarg++ {
 			r := strconv.Itoa(rand.Intn(255))
 			g := strconv.Itoa(rand.Intn(255))
 			b := strconv.Itoa(rand.Intn(255))
