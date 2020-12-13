@@ -1,23 +1,26 @@
 package main
 
-
 import (
-	"os"
 	"fmt"
 	"math/rand"
+	"os"
 )
 
 func main() {
-	total := ""
-	for i := 0;i < 45;i++ {
-		spaces := rand.Intn(50)
-		for c := 0;c < spaces;c++ {
-			total += " "
+	v := ""
+	if len(os.Args) > 1 {
+		for i := 0; i < 45; i++ {
+			num := rand.Intn(250)
+			space := ""
+			for c := 0; c < num; c++ {
+				space += " "
+			}
+			v = fmt.Sprint("\033[38;2;0;200;0m" + os.Args[1] + "\033[0m\n")
+			fmt.Print(space, v)
 		}
-		v := fmt.Sprint("\033[38;2;0;200;0m"+os.Args[1]+"\n\033[0m")
-		total += v
-	}		
-	fmt.Printf(total)
-	
+
+	} else {
+		fmt.Printf("Usage is \033[38;2;200;0;0mpatternmaker \033[38;2;0;200;0mmessage\033[0m")
+	}
 
 }
