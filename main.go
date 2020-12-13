@@ -17,7 +17,7 @@ func main() {
 			r := strconv.Itoa(rand.Intn(255))
 			g := strconv.Itoa(rand.Intn(255))
 			b := strconv.Itoa(rand.Intn(255))
-			v += fmt.Sprint("\033[38;2;" + r + ";" + g + ";" + b + "m" + os.Args[yarg] + "\033[0m")
+			v += fmt.Sprint("\033[38;2;" + r + ";" + g + ";" + b + "m " + os.Args[yarg] + "\033[0m")
 		}
 
 		for i := 0; i < 45; i++ {
