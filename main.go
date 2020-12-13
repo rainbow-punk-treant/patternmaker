@@ -4,18 +4,29 @@ import (
 	"fmt"
 	"math/rand"
 	"os"
+	"strconv"
+	"time"
 )
 
 func main() {
-	v := ""
+	rand.Seed(time.Now().UTC().UnixNano())
 	if len(os.Args) > 1 {
+
+		v := ""
+		for yarg := 1; yarg < len(os.Args)-1; yarg++ {
+			r := strconv.Itoa(rand.Intn(255))
+			g := strconv.Itoa(rand.Intn(255))
+			b := strconv.Itoa(rand.Intn(255))
+			v += fmt.Sprint("\033[38;2;" + r + ";" + g + ";" + b + "m" + os.Args[yarg] + "\033[0m")
+		}
+
 		for i := 0; i < 45; i++ {
 			num := rand.Intn(250)
 			space := ""
 			for c := 0; c < num; c++ {
 				space += " "
 			}
-			v = fmt.Sprint("\033[38;2;0;200;0m" + os.Args[1] + "\033[0m\n")
+
 			fmt.Print(space, v)
 		}
 
